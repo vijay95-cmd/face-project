@@ -1,62 +1,97 @@
 import cv2
 import numpy as np
 import os
+from config import config
+from logger import logger
 
-cam = cv2.VideoCapture(0)
+def is_blurry(image, threshold=100):
+    """Check if image is blurry using Laplacian variance."""
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) if len(image.shape) == 3 else image
+    laplacian_var = cv2.Laplacian(gray, cv2.CV_64F).var()
+    return bool(laplacian_var < threshold), laplacian_var
 
-# Check if camera opened successfully
-if not cam.isOpened():
-    print("ERROR: Cannot open camera!")
-    exit(1)
+def main():
+    cam = cv2.VideoCapture(config['gui']['camera_index'])
 
-face_cascade = cv2.CascadeClassifier(os.path.join('Haarcascade .xml files', 'haarcascade_frontalface_default.xml'))
+    # Check if camera opened successfully
+    if not cam.isOpened():
+        logger.error(f"Cannot open camera at index {config['gui']['camera_index']}!")
+        print(f"ERROR: Cannot open camera at index {config['gui']['camera_index']}!")
+        return
 
-# Check if cascade file loaded correctly
-if face_cascade.empty():
-    print("ERROR: Could not load face cascade classifier!")
-    exit(1)
+    face_cascade = cv2.CascadeClassifier(os.path.normpath(config['paths']['haarcascade_frontalface']))
 
-name = input("Apna naam enter karo: ")  # e.g. "Rahul"
+    # Check if cascade file loaded correctly
+    if face_cascade.empty():
+        logger.error("Could not load face cascade classifier!")
+        print("ERROR: Could not load face cascade classifier!")
+        return
 
-# Validate name
-if not name or name.strip() == "":
-    print("ERROR: Name cannot be empty!")
-    exit(1)
+    name = input("Apna naam enter karo: ")  # e.g. "Rahul"
 
-os.makedirs(os.path.join("dataset", name), exist_ok=True)
-count = 0
+    # Validate name
+    if not name or name.strip() == "":
+        logger.error("Name cannot be empty!")
+        print("ERROR: Name cannot be empty!")
+        return
 
-print(f"Starting dataset collection for {name}. Show your face to camera.")
-print("Press 'q' to stop early.")
+    dataset_dir = config['paths']['dataset_dir']
+    person_dir = os.path.join(dataset_dir, name.strip())
+    os.makedirs(person_dir, exist_ok=True)
+    count = 0
+    images_per_person = config['training']['images_per_person']
 
-while count < 30:  # 30 photos lo
-    ret, img = cam.read()
-    
-    if not ret:
-        print("ERROR: Failed to grab frame from camera!")
-        break
-    
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-    
-    for (x,y,w,h) in faces:
-        face = gray[y:y+h, x:x+w]
-        cv2.imwrite(f"dataset/{name}/face_{count}.jpg", face)
-        count += 1
-        cv2.rectangle(img, (x,y), (x+w,y+h), (255,0,0), 2)
-    
-    # Show progress
-    cv2.putText(img, f"Collected: {count}/30", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
-    cv2.imshow('Dataset', img)
-    
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        print("Collection stopped by user.")
-        break
+    logger.info(f"Starting dataset collection for {name}")
+    print(f"Starting dataset collection for {name}. Show your face to camera.")
+    print("Press 'q' to stop early.")
 
-cam.release()
-cv2.destroyAllWindows()
+    while count < images_per_person:
+        ret, img = cam.read()
+        
+        if not ret:
+            logger.error("Failed to grab frame from camera!")
+            print("ERROR: Failed to grab frame from camera!")
+            break
+        
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        faces = face_cascade.detectMultiScale(gray, config['recognition']['scale_factor'], config['recognition']['min_neighbors'])
+        
+        for (x,y,w,h) in faces:
+            face_img = img[y:y+h, x:x+w]  # Use color image for blur check
+            blurry, sharpness = is_blurry(face_img)
+            
+            if blurry:
+                cv2.rectangle(img, (x,y), (x+w,y+h), (0,0,255), 2)  # Red for blurry
+                cv2.putText(img, f"Blurry ({sharpness:.1f})", (x, y-30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)
+                continue
+            
+            face = gray[y:y+h, x:x+w]
+            # Resize to standard size
+            face = cv2.resize(face, (100, 100))
+            img_path = os.path.join(person_dir, f"face_{count}.jpg")
+            cv2.imwrite(img_path, face)
+            count += 1
+            cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)  # Green for good
+            logger.info(f"Saved image {count}/{images_per_person} for {name}")
+        
+        # Show progress
+        cv2.putText(img, f"Collected: {count}/{images_per_person}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
+        cv2.imshow('Dataset', img)
+        
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            logger.info("Collection stopped by user.")
+            print("Collection stopped by user.")
+            break
 
-if count > 0:
-    print(f"Dataset ready! Collected {count} images for {name}")
-else:
-    print("ERROR: No images were collected!")
+    cam.release()
+    cv2.destroyAllWindows()
+
+    if count > 0:
+        logger.info(f"Dataset ready! Collected {count} images for {name}")
+        print(f"Dataset ready! Collected {count} images for {name}")
+    else:
+        logger.error("No images were collected!")
+        print("ERROR: No images were collected!")
+
+if __name__ == "__main__":
+    main()

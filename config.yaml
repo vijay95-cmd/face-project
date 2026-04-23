@@ -1,0 +1,46 @@
+system:
+  name: "Face Recognition Attendance System"
+  version: "2.0.0"
+
+paths:
+  dataset_dir: "dataset"
+  model_file: "trainer.yml"
+  labels_file: "labels.npy"
+  haarcascade_frontalface: "Haarcascade .xml files/haarcascade_frontalface_default.xml"
+  haarcascade_eye: "Haarcascade .xml files/haarcascade_eye.xml"
+  database_file: "face_recognition.db"
+
+recognition:
+  algorithm: "LBPH"  # Options: LBPH, EigenFaces, FisherFaces
+  confidence_threshold: 70.0
+  min_face_size: [30, 30]
+  scale_factor: 1.3
+  min_neighbors: 5
+
+training:
+  images_per_person: 30
+  test_split: 0.2
+
+database:
+  backup_enabled: true
+  backup_interval_days: 7
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "system.log"
+  max_size_mb: 10
+  backup_count: 5
+
+web:
+  host: "0.0.0.0"
+  port: 5000
+  debug: false
+
+gui:
+  window_title: "Face Recognition Attendance"
+  camera_index: 0
+  voice_enabled: true
+
+attendance:
+  export_formats: ["excel", "csv", "json"]
+  report_types: ["daily", "weekly", "monthly"]

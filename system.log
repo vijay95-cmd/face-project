@@ -1,0 +1,46 @@
+2026-04-23 11:23:42,424 - face_recognition - INFO - System initialized successfully
+2026-04-23 12:00:01,249 - face_recognition - INFO - Face Recognition started. Press 'q' to exit.
+2026-04-23 12:00:06,705 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:07,731 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:07,831 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:07,911 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:08,004 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:08,112 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:08,184 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:08,231 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:08,290 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:08,345 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:09,219 - face_recognition - INFO - Attendance marked for vivek
+2026-04-23 12:00:14,906 - face_recognition - INFO - Face Recognition closed.
+2026-04-23 12:04:26,781 - face_recognition - INFO - Starting dataset collection for vijay
+2026-04-23 12:04:30,313 - face_recognition - INFO - Saved image 1/30 for vijay
+2026-04-23 12:04:32,445 - face_recognition - INFO - Saved image 2/30 for vijay
+2026-04-23 12:04:32,481 - face_recognition - INFO - Saved image 3/30 for vijay
+2026-04-23 12:04:32,515 - face_recognition - INFO - Saved image 4/30 for vijay
+2026-04-23 12:04:32,546 - face_recognition - INFO - Saved image 5/30 for vijay
+2026-04-23 12:04:32,578 - face_recognition - INFO - Saved image 6/30 for vijay
+2026-04-23 12:04:32,657 - face_recognition - INFO - Saved image 7/30 for vijay
+2026-04-23 12:04:32,723 - face_recognition - INFO - Saved image 8/30 for vijay
+2026-04-23 12:04:32,750 - face_recognition - INFO - Saved image 9/30 for vijay
+2026-04-23 12:04:32,786 - face_recognition - INFO - Saved image 10/30 for vijay
+2026-04-23 12:04:32,820 - face_recognition - INFO - Saved image 11/30 for vijay
+2026-04-23 12:04:32,851 - face_recognition - INFO - Saved image 12/30 for vijay
+2026-04-23 12:04:32,885 - face_recognition - INFO - Saved image 13/30 for vijay
+2026-04-23 12:04:32,919 - face_recognition - INFO - Saved image 14/30 for vijay
+2026-04-23 12:04:32,954 - face_recognition - INFO - Saved image 15/30 for vijay
+2026-04-23 12:04:32,987 - face_recognition - INFO - Saved image 16/30 for vijay
+2026-04-23 12:04:33,026 - face_recognition - INFO - Saved image 17/30 for vijay
+2026-04-23 12:04:33,061 - face_recognition - INFO - Saved image 18/30 for vijay
+2026-04-23 12:04:33,094 - face_recognition - INFO - Saved image 19/30 for vijay
+2026-04-23 12:04:33,154 - face_recognition - INFO - Saved image 20/30 for vijay
+2026-04-23 12:04:33,185 - face_recognition - INFO - Saved image 21/30 for vijay
+2026-04-23 12:04:33,217 - face_recognition - INFO - Saved image 22/30 for vijay
+2026-04-23 12:04:33,248 - face_recognition - INFO - Saved image 23/30 for vijay
+2026-04-23 12:04:33,337 - face_recognition - INFO - Saved image 24/30 for vijay
+2026-04-23 12:04:33,427 - face_recognition - INFO - Saved image 25/30 for vijay
+2026-04-23 12:04:33,463 - face_recognition - INFO - Saved image 26/30 for vijay
+2026-04-23 12:04:34,532 - face_recognition - INFO - Saved image 27/30 for vijay
+2026-04-23 12:04:35,171 - face_recognition - INFO - Saved image 28/30 for vijay
+2026-04-23 12:04:36,703 - face_recognition - INFO - Saved image 29/30 for vijay
+2026-04-23 12:04:36,743 - face_recognition - INFO - Saved image 30/30 for vijay
+2026-04-23 12:04:37,181 - face_recognition - INFO - Dataset ready! Collected 30 images for vijay

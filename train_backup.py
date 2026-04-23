@@ -84,6 +84,7 @@ for person in dataset_folders:
         if img is None:
             print(f"WARNING: Could not read {img_path}, skipping...")
             continue
+        img = cv2.resize(img, (100, 100))
         faces.append(img)
         labels.append(person_id)
         person_images += 1
