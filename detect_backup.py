@@ -26,10 +26,6 @@ if eye_cascade.empty():
     print("WARNING: Could not load eye cascade classifier! Eye detection will be disabled.")
     eye_cascade = None
 
-if eye_cascade.empty():
-    print("WARNING: Could not load eye cascade classifier! Eye detection will be disabled.")
-    eye_cascade = None
-
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer.yml')
 labels = np.load('labels.npy', allow_pickle=True).item()

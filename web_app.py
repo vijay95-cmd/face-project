@@ -172,115 +172,111 @@ if __name__ == '__main__':
         <h1 class="text-3xl font-bold text-center mb-8">Face Recognition Attendance System</h1>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- System Status -->
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h2 class="text-xl font-semibold mb-4">System Status</h2>
-                <div id="system-status" class="space-y-2">
+                <div class="space-y-2">
                     <div class="flex items-center">
-                        <div class="w-3 h-3 bg-gray-400 rounded-full mr-2" id="model-status"></div>
+                        <div id="model-status" class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
                         <span>Model Trained</span>
                     </div>
                     <div class="flex items-center">
-                        <div class="w-3 h-3 bg-gray-400 rounded-full mr-2" id="db-status"></div>
+                        <div id="db-status" class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
                         <span>Database</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Today's Attendance -->
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h2 class="text-xl font-semibold mb-4">Today's Attendance</h2>
                 <div id="today-attendance" class="space-y-2">
-                    <p>Loading...</p>
+                    <p class="text-gray-500">Loading...</p>
                 </div>
             </div>
             
-            <!-- Statistics -->
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h2 class="text-xl font-semibold mb-4">Statistics</h2>
                 <div id="stats" class="space-y-2">
-                    <p>Loading...</p>
+                    <p class="text-gray-500">Loading...</p>
                 </div>
             </div>
         </div>
         
-        <!-- Users List -->
         <div class="bg-white rounded-lg shadow-md p-6 mt-6">
             <h2 class="text-xl font-semibold mb-4">Registered Users</h2>
             <div id="users-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <p>Loading...</p>
+                <p class="text-gray-500">Loading...</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Load system status
-        fetch('/api/system/status')
-            .then(response => response.json())
-            .then(data => {
-                const modelStatus = document.getElementById('model-status');
-                const dbStatus = document.getElementById('db-status');
-                
-                modelStatus.className = data.model_trained ? 'w-3 h-3 bg-green-400 rounded-full mr-2' : 'w-3 h-3 bg-red-400 rounded-full mr-2';
-                dbStatus.className = data.database_exists ? 'w-3 h-3 bg-green-400 rounded-full mr-2' : 'w-3 h-3 bg-red-400 rounded-full mr-2';
-            });
-        
-        // Load today's attendance
+        function renderStatus(data) {
+            document.getElementById('model-status').className = data.model_trained ? 'w-3 h-3 bg-green-400 rounded-full mr-2' : 'w-3 h-3 bg-red-400 rounded-full mr-2';
+            document.getElementById('db-status').className = data.database_exists ? 'w-3 h-3 bg-green-400 rounded-full mr-2' : 'w-3 h-3 bg-red-400 rounded-full mr-2';
+        }
+
         function loadTodayAttendance() {
             fetch('/api/attendance/today')
                 .then(response => response.json())
                 .then(data => {
                     const container = document.getElementById('today-attendance');
-                    if (data.length === 0) {
+                    if (!Array.isArray(data) || data.length === 0) {
                         container.innerHTML = '<p class="text-gray-500">No attendance records for today</p>';
                         return;
                     }
-                    
-                    container.innerHTML = data.map(record => 
-                        <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
-                            <span class="font-medium"></span>
-                            <span class="text-sm text-gray-600"></span>
-                        </div>
-                    ).join('');
+                    container.innerHTML = data.map(record => {
+                        return `<div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                            <span class="font-medium">${record.name}</span>
+                            <span class="text-sm text-gray-600">${record.timestamp}</span>
+                        </div>`;
+                    }).join('');
                 });
         }
-        
-        // Load statistics
-        fetch('/api/attendance/stats')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('stats');
-                container.innerHTML = 
-                    <div class="flex justify-between">
-                        <span>Total Users:</span>
-                        <span class="font-bold"></span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Today's Users:</span>
-                        <span class="font-bold"></span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>This Week:</span>
-                        <span class="font-bold"></span>
-                    </div>
-                ;
-            });
-        
-        // Load users
-        fetch('/api/users')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('users-list');
-                container.innerHTML = data.map(user => 
-                    <div class="p-4 border rounded-lg">
-                        <h3 class="font-semibold"></h3>
-                        <p class="text-sm text-gray-600">Registered: </p>
-                    </div>
-                ).join('');
-            });
-        
-        // Auto-refresh attendance every 30 seconds
+
+        function loadStats() {
+            fetch('/api/attendance/stats')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('stats');
+                    container.innerHTML = `
+                        <div class="flex justify-between">
+                            <span>Total Users:</span>
+                            <span class="font-bold">${data.total_users || 0}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Today's Users:</span>
+                            <span class="font-bold">${data.today_users || 0}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>This Week:</span>
+                            <span class="font-bold">${data.week_attendance || 0}</span>
+                        </div>
+                    `;
+                });
+        }
+
+        function loadUsers() {
+            fetch('/api/users')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('users-list');
+                    if (!Array.isArray(data) || data.length === 0) {
+                        container.innerHTML = '<p class="text-gray-500">No users registered yet</p>';
+                        return;
+                    }
+                    container.innerHTML = data.map(user => {
+                        return `<div class="p-4 border rounded-lg bg-gray-50">
+                            <h3 class="font-semibold">${user.name}</h3>
+                            <p class="text-sm text-gray-600">ID: ${user.id}</p>
+                        </div>`;
+                    }).join('');
+                });
+        }
+
+        fetch('/api/system/status').then(response => response.json()).then(renderStatus);
         loadTodayAttendance();
+        loadStats();
+        loadUsers();
         setInterval(loadTodayAttendance, 30000);
     </script>
 </body>

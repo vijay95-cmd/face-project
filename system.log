@@ -44,3 +44,112 @@
 2026-04-23 12:04:36,703 - face_recognition - INFO - Saved image 29/30 for vijay
 2026-04-23 12:04:36,743 - face_recognition - INFO - Saved image 30/30 for vijay
 2026-04-23 12:04:37,181 - face_recognition - INFO - Dataset ready! Collected 30 images for vijay
+2026-07-06 14:15:57,292 - face_recognition - INFO - Starting dataset collection for vijay
+2026-07-06 14:16:04,076 - face_recognition - INFO - Saved image 1/30 for vijay
+2026-07-06 14:16:04,114 - face_recognition - INFO - Saved image 2/30 for vijay
+2026-07-06 14:16:04,141 - face_recognition - INFO - Saved image 3/30 for vijay
+2026-07-06 14:16:04,181 - face_recognition - INFO - Saved image 4/30 for vijay
+2026-07-06 14:16:04,221 - face_recognition - INFO - Saved image 5/30 for vijay
+2026-07-06 14:16:04,250 - face_recognition - INFO - Saved image 6/30 for vijay
+2026-07-06 14:16:04,276 - face_recognition - INFO - Saved image 7/30 for vijay
+2026-07-06 14:16:04,348 - face_recognition - INFO - Saved image 8/30 for vijay
+2026-07-06 14:16:04,388 - face_recognition - INFO - Saved image 9/30 for vijay
+2026-07-06 14:16:04,420 - face_recognition - INFO - Saved image 10/30 for vijay
+2026-07-06 14:16:04,454 - face_recognition - INFO - Saved image 11/30 for vijay
+2026-07-06 14:16:04,473 - face_recognition - INFO - Saved image 12/30 for vijay
+2026-07-06 14:16:04,494 - face_recognition - INFO - Saved image 13/30 for vijay
+2026-07-06 14:16:04,522 - face_recognition - INFO - Saved image 14/30 for vijay
+2026-07-06 14:16:04,552 - face_recognition - INFO - Saved image 15/30 for vijay
+2026-07-06 14:16:04,579 - face_recognition - INFO - Saved image 16/30 for vijay
+2026-07-06 14:16:04,622 - face_recognition - INFO - Saved image 17/30 for vijay
+2026-07-06 14:16:04,646 - face_recognition - INFO - Saved image 18/30 for vijay
+2026-07-06 14:16:04,680 - face_recognition - INFO - Saved image 19/30 for vijay
+2026-07-06 14:16:04,741 - face_recognition - INFO - Saved image 20/30 for vijay
+2026-07-06 14:16:04,777 - face_recognition - INFO - Saved image 21/30 for vijay
+2026-07-06 14:16:04,818 - face_recognition - INFO - Saved image 22/30 for vijay
+2026-07-06 14:16:04,840 - face_recognition - INFO - Saved image 23/30 for vijay
+2026-07-06 14:16:04,864 - face_recognition - INFO - Saved image 24/30 for vijay
+2026-07-06 14:16:04,888 - face_recognition - INFO - Saved image 25/30 for vijay
+2026-07-06 14:16:04,921 - face_recognition - INFO - Saved image 26/30 for vijay
+2026-07-06 14:16:04,955 - face_recognition - INFO - Saved image 27/30 for vijay
+2026-07-06 14:16:04,984 - face_recognition - INFO - Saved image 28/30 for vijay
+2026-07-06 14:16:05,029 - face_recognition - INFO - Saved image 29/30 for vijay
+2026-07-06 14:16:05,050 - face_recognition - INFO - Saved image 30/30 for vijay
+2026-07-06 14:16:05,382 - face_recognition - INFO - Dataset ready! Collected 30 images for vijay
+2026-07-06 14:19:55,531 - face_recognition - INFO - Face Recognition started. Press 'q' to exit.
+2026-07-06 14:20:04,350 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,443 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,632 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,682 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,751 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,807 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,870 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,930 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:04,986 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,043 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,105 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,161 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,221 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,503 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,606 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,663 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,724 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,855 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,920 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:05,988 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:06,054 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:06,123 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:06,282 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:06,340 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:07,906 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:10,681 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:11,096 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:11,571 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:11,642 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:11,880 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:12,085 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:27,576 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:28,026 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:28,084 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:29,626 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:34,050 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:34,462 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:50,171 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:50,228 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:51,439 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:51,610 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:53,691 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:53,747 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:55,426 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:55,697 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:56,106 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:56,162 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:56,217 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:56,277 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:56,332 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:56,389 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:57,006 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:57,063 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:57,777 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:58,366 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:58,422 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:58,480 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:58,686 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:58,743 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:58,842 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:59,367 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:59,432 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:59,566 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:59,657 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:59,787 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:20:59,848 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:00,006 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:00,731 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:00,793 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:00,883 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:00,940 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:13,738 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:13,791 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:13,851 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:13,912 - face_recognition - INFO - Attendance marked for vivek
+2026-07-06 14:21:22,156 - face_recognition - INFO - Attendance marked for vivek

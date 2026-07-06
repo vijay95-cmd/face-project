@@ -26,10 +26,6 @@ if eye_cascade.empty():
     print("WARNING: Could not load eye cascade classifier! Eye detection will be disabled.")
     eye_cascade = None
 
-if eye_cascade.empty():
-    print("WARNING: Could not load eye cascade classifier! Eye detection will be disabled.")
-    eye_cascade = None
-
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer.yml')
 labels = np.load('labels.npy', allow_pickle=True).item()
@@ -69,8 +65,8 @@ while True:
         
         if eye_cascade is not None:
             eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 3)
-        for (ex,ey,ew,eh) in eyes:
-            cv2.rectangle(roi_color, (ex,ey), (ex+ew,ey+eh), (0,127,255), 2)  # Red eyes
+            for (ex,ey,ew,eh) in eyes:
+                cv2.rectangle(roi_color, (ex,ey), (ex+ew,ey+eh), (0,127,255), 2)  # Red eyes
     
     cv2.imshow('Face Detection and Recognition', img)
     key = cv2.waitKey(30) & 0xFF
